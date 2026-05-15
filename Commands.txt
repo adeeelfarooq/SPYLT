@@ -19,6 +19,10 @@ export default defineConfig({
   plugins: [react() , tailwindcss()],
 })
 
-Now go to index.css remove all te conent in ther and import :
+Now go to index.css remove all the content in the file and import :
 
 @import "tailwindcss";
+
+Now install gsap :
+
+npm install gsap @gsap/react react-responsive
