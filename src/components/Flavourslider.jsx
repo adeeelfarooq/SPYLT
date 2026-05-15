@@ -51,7 +51,6 @@ useGSAP(()=>{
         yPercent: -200 , 
         duration: 5,
         ease:"power1.inOut",
-        stagger: 0.8,
     } )
 })
 

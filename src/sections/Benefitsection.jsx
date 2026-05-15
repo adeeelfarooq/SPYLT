@@ -45,7 +45,7 @@ const Benefitsection = () => {
 
 
   return (
-    <section className='benefit-section'>
+    <section id="benefit-section" className='benefit-section'>
         <div className="container mx-auto pt-20">
             <div className="col-center">
                 <p>Unlock the Advantages:<br/> 

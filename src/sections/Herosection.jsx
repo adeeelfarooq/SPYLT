@@ -4,8 +4,6 @@ import { SplitText } from "gsap/all"
 import { useMediaQuery } from "react-responsive";
 
 
-
-
 const Herosection = () => {
 
     const isMobile = useMediaQuery({
@@ -36,6 +34,10 @@ const Herosection = () => {
             yPercent: 200,
             stagger: 0.05,
             ease: "power2.out"
+        }, "-0.01").to(".order-btn" , {
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            duration: 1 ,
+            ease:"power1.inOut",
         } )
         const heroTl = gsap.timeline({
             scrollTrigger: {
@@ -57,11 +59,8 @@ const Herosection = () => {
 
     return (
         <div>
-            <section className='bg-main-bg'>
-                
+            <section id="hero-container" className='bg-main-bg'>
                 <div className='hero-container'>
-                    
-                    
                     
                     {
                         isTablet ? (
@@ -80,7 +79,6 @@ const Herosection = () => {
                         
                     <div className='hero-content opacity-0'>
                         <div className='overflow-hidden'>
-                            
                             <h1 className='hero-title'>Freaking Delicious</h1>
                         </div>
                         <div style={{
@@ -91,7 +89,6 @@ const Herosection = () => {
                                 <h1>Protein + Caffine</h1>
                             </div>
                         </div>
-                        
                         <h2>
                             Live life with a fullest with SPYLT: Shatter bordom and embrace
                             you inner kid with every deliciously smooth chug.
