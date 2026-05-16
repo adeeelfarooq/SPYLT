@@ -182,14 +182,14 @@ const BurgerMenu = () => {
           <div 
             ref={line1Ref} 
             className="w-10 h-[2px] origin-center transition-colors duration-500 transform-gpu"
-            style={{ backgroundColor: 'rgba(235, 10, 30, 0.6)' }}
+            style={{ backgroundColor: 'rgba(92, 64, 51, 1)' }}
           ></div>
           
           {/* Burger Line 2 (toyota-red/60 applied via rgba) */}
           <div 
             ref={line2Ref} 
             className="w-10 h-[2px] origin-center transition-colors duration-500 transform-gpu"
-            style={{ backgroundColor: 'rgba(235, 10, 30, 0.6)' }}
+            style={{ backgroundColor: 'rgba(92, 64, 51, 1)' }}
           ></div>
         </div>
       </div>
