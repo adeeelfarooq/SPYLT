@@ -9,7 +9,7 @@ const menuItems = [
   { name: "Find In Stores", img: "/images/Burgermenu5.png" },
   { name: "About Us", img: "/images/Burgermenu4.png" },
   { name: "Tasty Talks", img: "/images/Burgermenu3.png"},
-  { name: "Program", img: "/images/Burgermenu2.png" },
+  { name: "Programs", img: "/images/Burgermenu2.png" },
   { name: "Contacts", img: "/images/Burgermenu1.png" }
 ];
 
