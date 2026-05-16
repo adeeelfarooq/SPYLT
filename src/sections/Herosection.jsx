@@ -62,6 +62,9 @@ const Herosection = () => {
         <div>
             <section id="hero-container" className='bg-main-bg'>
                 <div className='hero-container'>
+                    <a href="#" className="absolute z-20000 scale-80 inline-flex items-center justify-center bg-white/70 text-dark-brown font-extrabold right-[1%] top-[3%]  uppercase tracking-wide py-4 px-8 rounded-full transition-all duration-300 ease-in-out hover:bg-light-brown   ">
+  FIND IN STORES
+</a>
                     
                     
                     <BurgerMenu/>

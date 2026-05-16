@@ -30,18 +30,18 @@ const Footersection = () => {
 
             <div className="mt-49 md:px-1 px-5 flex gap-10 md:flex-row flex-col justify-between text-milk font-paragraph md:text-lg font-medium">
                 <div className="flex items-center md:gap-16 gap-5 ">
-                    <div>
-                        <p>SPYLT Flavours</p>
+                    <div className='z-1000' >
+                        <p className='cursor-pointer' >SPYLT Flavours</p>
                     </div>
-                    <div>
-                        <p>Chug Club</p>
-                        <p>Student Marketing</p>
-                        <p>Dairy Dealers</p>
+                    <div className='z-1000'>
+                        <p className='cursor-pointer'>Chug Club</p>
+                        <p className='cursor-pointer'>Student Marketing</p>
+                        <p className='cursor-pointer'>Dairy Dealers</p>
                     </div>
-                    <div>
-                        <p>Company</p>
-                        <p>Contact</p>
-                        <p>Tasty Talk</p>
+                    <div className='z-1000'>
+                        <p className='cursor-pointer'>Company</p>
+                        <p className='cursor-pointer'>Contact</p>
+                        <p className='cursor-pointer'>Tasty Talk</p>
                     </div>
                 </div>
                 <div className="max-w-lg">
@@ -52,10 +52,10 @@ const Footersection = () => {
                   <br/>
                   
                   <div className="copyright-box">
-                    <p>Copyright © 2025 Spylt - All Rights Reserved</p>
-                    <div className="flex item-center gap-7">
-                        <p>Privacy Policy</p>
-                        <p>Terms Of Services</p>
+                    <p >Copyright © 2025 Spylt - All Rights Reserved</p>
+                    <div className="flex item-center gap-7 z-1000">
+                        <p className='cursor-pointer'>Privacy Policy</p>
+                        <p className='cursor-pointer'>Terms Of Services</p>
                     </div>
                   </div>
                 
