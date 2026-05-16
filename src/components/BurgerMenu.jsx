@@ -9,7 +9,8 @@ const menuItems = [
   { name: "Find In Stores", img: "/images/modelss.jpg" },
   { name: "About Us", img: "/images/racing.jpg" },
   { name: "Tasty Talks", img: "/images/aboutus.jpg", scale: "scale-110" },
-  { name: "Contact", img: "/images/cnt.webp" }
+  { name: "Program", img: "/images/cnt.webp" },
+  { name: "Contacts", img: "/images/cnt.webp" }
 ];
 
 const BurgerMenu = () => {
@@ -102,7 +103,7 @@ const BurgerMenu = () => {
       >
         {/* LEFT 50% - MENU ITEMS & SOCIALS */}
         <div className="w-1/2 h-full flex flex-col items-center justify-center relative">
-          <ul className="text-white text-5xl md:text-7xl font-black uppercase text-left space-y-6 tracking-tighter w-max flex flex-col items-center">
+          <ul className="text-dark-brown text-5xl md:text-7xl font-black uppercase text-left space-y-6 tracking-tighter w-max flex flex-col items-center">
             {menuItems.map((item, index) => (
               <li 
                 key={index}
