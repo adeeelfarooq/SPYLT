@@ -6,11 +6,11 @@ import { useGSAP } from '@gsap/react';
 // Menu Items and Placeholder Images
 const menuItems = [
   { name: "Shop", img: "/images/Burgermenu6.png" },
-  { name: "Find In Stores", img: "/images/modelss.jpg" },
-  { name: "About Us", img: "/images/racing.jpg" },
-  { name: "Tasty Talks", img: "/images/aboutus.jpg", scale: "scale-110" },
-  { name: "Program", img: "/images/cnt.webp" },
-  { name: "Contacts", img: "/images/cnt.webp" }
+  { name: "Find In Stores", img: "/images/Burgermenu5.png" },
+  { name: "About Us", img: "/images/Burgermenu4.png" },
+  { name: "Tasty Talks", img: "/images/Burgermenu3.png"},
+  { name: "Program", img: "/images/Burgermenu2.png" },
+  { name: "Contacts", img: "/images/Burgermenu1.png" }
 ];
 
 const BurgerMenu = () => {
