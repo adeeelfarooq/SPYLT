@@ -62,6 +62,8 @@ const Herosection = () => {
         <div>
             <section id="hero-container" className='bg-main-bg'>
                 <div className='hero-container'>
+                    
+                    
                     <BurgerMenu/>
                     {
                         isTablet ? (
@@ -78,6 +80,7 @@ const Herosection = () => {
                             />
                         )}
                         
+                        
                     <div className='hero-content opacity-0'>
                         <div className='overflow-hidden'>
                             <h1 className='hero-title'>Freaking Delicious</h1>
@@ -90,6 +93,7 @@ const Herosection = () => {
                                 <h1>Protein + Caffine</h1>
                             </div>
                         </div>
+                        
                         <h2>
                             Live life with a fullest with SPYLT: Shatter bordom and embrace
                             you inner kid with every deliciously smooth chug.
@@ -99,6 +103,7 @@ const Herosection = () => {
                         </div>
                     </div>
                 </div >
+                
 
             </section>
         </div>
