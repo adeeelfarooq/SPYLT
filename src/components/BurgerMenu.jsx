@@ -119,8 +119,8 @@ const BurgerMenu = () => {
           </ul>
 
           {/* SPYLT STYLE BOTTOM SOCIALS */}
-          <div className="absolute font-paragraph bottom-8 md:bottom-12 flex gap-6 md:gap-6 text-dark-brown text-[10px] md:text-xs cursor-pointer  ">
-            <span>Facebook</span>
+          <div className="absolute font-paragraph bottom-8 md:bottom-12 flex gap-6 md:gap-6 text-dark-brown text-[10px] md:text-sm cursor-pointer  ">
+            <span>Youtube</span>
             <span>Instagram</span>
             <span>TikTok</span>
           </div>
@@ -174,8 +174,8 @@ const BurgerMenu = () => {
         {/* 🍔 THE ACTUAL BUTTON */}
         <div 
           ref={buttonRef}
-          className={`w-14 h-14 rounded-full flex flex-col items-center justify-center gap-[6px] transition-colors duration-500 transform-gpu ${
-            isOpen ? 'bg-white shadow-xl' : 'bg-transparent'
+          className={`w-10 h-10 rounded-full flex flex-col items-center justify-center gap-[6px] transition-colors duration-500 transform-gpu ${
+            isOpen ? 'bg-milk shadow-xl' : 'bg-transparent'
           }`}
         >
           {/* Burger Line 1 (toyota-red/60 applied via rgba) */}
