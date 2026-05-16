@@ -2,6 +2,7 @@ import { useGSAP } from "@gsap/react"
 import gsap from "gsap";
 import { SplitText } from "gsap/all"
 import { useMediaQuery } from "react-responsive";
+import BurgerMenu from "../components/BurgerMenu";
 
 
 const Herosection = () => {
@@ -61,7 +62,7 @@ const Herosection = () => {
         <div>
             <section id="hero-container" className='bg-main-bg'>
                 <div className='hero-container'>
-                    
+                    <BurgerMenu/>
                     {
                         isTablet ? (
                             <> {
