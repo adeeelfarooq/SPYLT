@@ -5,7 +5,7 @@ import { useGSAP } from '@gsap/react';
 
 // Menu Items and Placeholder Images
 const menuItems = [
-  { name: "Shop", img: "/images/Contact.webp" },
+  { name: "Shop", img: "/images/Burgermenu6.png" },
   { name: "Find In Stores", img: "/images/modelss.jpg" },
   { name: "About Us", img: "/images/racing.jpg" },
   { name: "Tasty Talks", img: "/images/aboutus.jpg", scale: "scale-110" },
@@ -127,8 +127,8 @@ const BurgerMenu = () => {
         </div>
 
         {/* RIGHT 50% - IMAGES (WITH FLASH & ZOOM OUT EFFECT) */}
-        <div className="w-1/2 h-full relative overflow-hidden bg-black bg-cover bg-center  " 
-        style={{ backgroundImage: "url('/images/Toyota1.avif')"  }}
+        <div className="w-1/2 h-full relative overflow-hidden bg-black bg-cover   " 
+        style={{ backgroundImage: "url('/images/Burgermenu7.png')"  }}
         
         >
           {menuItems.map((item, index) => (
