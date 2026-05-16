@@ -5,10 +5,10 @@ import { useGSAP } from '@gsap/react';
 
 // Menu Items and Placeholder Images
 const menuItems = [
-  { name: "Home", img: "/images/Contact.webp" },
-  { name: "Models", img: "/images/modelss.jpg" },
-  { name: "Racing", img: "/images/racing.jpg" },
-  { name: "About Us", img: "/images/aboutus.jpg", scale: "scale-110" },
+  { name: "Shop", img: "/images/Contact.webp" },
+  { name: "Find In Stores", img: "/images/modelss.jpg" },
+  { name: "About Us", img: "/images/racing.jpg" },
+  { name: "Tasty Talks", img: "/images/aboutus.jpg", scale: "scale-110" },
   { name: "Contact", img: "/images/cnt.webp" }
 ];
 
