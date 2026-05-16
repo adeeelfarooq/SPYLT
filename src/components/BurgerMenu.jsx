@@ -99,11 +99,11 @@ const BurgerMenu = () => {
       {/* ⬛ FULL SCREEN SHUTTER MENU (SPLIT 50/50) */}
       <div 
         ref={menuRef}
-        className="fixed top-0 left-0 w-full h-screen bg-toyota-red-soft z-[90] flex flex-row overflow-hidden transform-gpu"
+        className="fixed top-0 left-0 w-full h-screen bg-milk z-[90] flex flex-row overflow-hidden transform-gpu"
       >
         {/* LEFT 50% - MENU ITEMS & SOCIALS */}
         <div className="w-1/2 h-full flex flex-col items-center justify-center relative">
-          <ul className="text-dark-brown text-5xl md:text-7xl font-black uppercase text-left space-y-6 tracking-tighter w-max flex flex-col items-center">
+          <ul className="text-dark-brown text-5xl md:text-7xl font-black uppercase text-left space-y-1 tracking-tighter w-max flex flex-col items-center">
             {menuItems.map((item, index) => (
               <li 
                 key={index}
@@ -119,7 +119,7 @@ const BurgerMenu = () => {
           </ul>
 
           {/* SPYLT STYLE BOTTOM SOCIALS */}
-          <div className="absolute font-paragraph bottom-8 md:bottom-12 flex gap-6 md:gap-6 text-white text-[10px] md:text-xs cursor-pointer  ">
+          <div className="absolute font-paragraph bottom-8 md:bottom-12 flex gap-6 md:gap-6 text-dark-brown text-[10px] md:text-xs cursor-pointer  ">
             <span>Facebook</span>
             <span>Instagram</span>
             <span>TikTok</span>
