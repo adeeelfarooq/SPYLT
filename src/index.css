@@ -73,10 +73,10 @@ body::-webkit-scrollbar {
       }
 
       .hero-text-scroll {
-        @apply rotate-[-3deg]  mb-8 border-[.5vw] border-milk;
+        @apply rotate-[-3deg] mb-8 border-[.5vw] border-milk ;
 
         .hero-subtitle {
-          @apply bg-mid-brown md:px-3 ;
+          @apply bg-mid-brown  md:px-3 ;
         }
 
         h1 {
@@ -85,11 +85,11 @@ body::-webkit-scrollbar {
       }
 
       h2 {
-        @apply font-paragraph text-dark-brown text-center md:max-w-lg max-w-sm px-5 md:text-lg leading-[115%] mt-3;
+        @apply font-paragraph text-dark-brown text-center md:max-w-sm max-w-sm md:text-sm leading-[115%] mt-3;
       }
 
       .hero-button {
-        @apply md:mt-16 mt-10 text-dark-brown bg-light-brown uppercase font-bold text-lg rounded-full md:p-5 p-3 md:px-16 px-10;
+        @apply md:mt-10 mt-10 scale-80 cursor-pointer text-dark-brown bg-light-brown uppercase font-bold text-lg rounded-full md:p-5 p-3 md:px-16 px-10;
       }
     }
   }
