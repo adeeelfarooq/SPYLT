@@ -101,9 +101,42 @@ const Herosection = () => {
                             Live life with a fullest with SPYLT: Shatter bordom and embrace
                             you inner kid with every deliciously smooth chug.
                         </h2>
-                        <div className="hero-button">
-                            <p>chug a Spylt</p>
-                        </div>
+                        <div className="hero-button relative inline-flex items-center justify-center py-4 px-15 group cursor-pointer scale-[0.8]">
+    
+    {/* SVG Filter for Hero Button (ID change ki hai taaky pichle button se conflict na ho) */}
+    <svg className="absolute w-0 h-0">
+        <filter id="gooey-drips-hero">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="gooey" />
+        </filter>
+    </svg>
+
+    {/* Gooey Container (Liquid Drops k liye) */}
+    <div 
+        className="absolute inset-0 pointer-events-none" 
+        style={{ filter: "url(#gooey-drips-hero)" }}
+    >
+        {/* Main Background */}
+        <div className="absolute inset-0  bg-light-brown rounded-full"></div>
+        
+        {/* Drops (Katry) - Same Left to Right Flow */}
+        <div className="absolute w-3 h-15 bg-light-brown rounded-full left-[25%] bottom-0 transition-transform duration-300 ease-in-out group-hover:translate-y-[36px] delay-[225ms]"></div>
+                    
+                    {/* Drip 2: Mid-Left (Sub se lamba, Drip 1 k baad girega) */}
+                    <div className="absolute w-4 h-6 bg-light-brown rounded-full left-[42%] bottom-0 transition-transform duration-300 ease-in-out group-hover:translate-y-[18px] delay-[150ms]"></div>
+                    
+                    {/* Drip 3: Mid-Right (Sub se chhota aur patla) */}
+                    <div className="absolute w-2 h-9 bg-light-brown rounded-full left-[60%] bottom-0 transition-transform duration-300 ease-in-out group-hover:translate-y-[24px] delay-[75ms]"></div>
+                    
+                    {/* Drip 4: Rightmost (Medium length, aakhir mein girega) */}
+                    <div className="absolute w-2 h-5 bg-light-brown rounded-full left-[75%] bottom-0 transition-transform duration-300 ease-in-out group-hover:translate-y-[15px] delay-0"></div>
+    </div>
+
+    {/* Aapka Text */}
+    <p className="relative z-10 text-dark-brown font-extrabold uppercase tracking-wide m-0">
+        chug a Spylt
+    </p>
+</div>
                     </div>
                 </div >
                 
