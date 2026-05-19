@@ -9,6 +9,7 @@ const Flavourslider = () => {
         query: "(max-width: 1024px)" ,
     });
     const sliderRef = useRef();
+
 useGSAP(()=>{
 
     const scrollAmount = sliderRef.current.scrollWidth - window.innerWidth;
@@ -16,14 +17,16 @@ useGSAP(()=>{
     if(!isTablet){
         const tL = gsap.timeline({
         scrollTrigger:{
-            trigger: ".flavor-section",
+            trigger: ".flavor-section", // Trigger outer section hi rahy ga
             start: "2% top",
-            pin: true,
+            pin: true,                  // Outer section pin ho jayega
             end: `+=${scrollAmount + 1500}px`,
             scrub: true,
         }
     })
-    tL.to(".flavor-section" , {
+    
+    // Yahan .flavor-section ki jagah .flavor-container kr diya hai
+    tL.to(".flavor-container" , {
         x: `-${scrollAmount + 1500}px`,
         ease: "power1.inOut",
     })
@@ -56,7 +59,7 @@ useGSAP(()=>{
 
   return (
     <div ref={sliderRef} className='slider-wrapper'>
-        <div className="flavors">
+        <div className="flavors flex"> {/* Ensure this has flex if not already */}
             {
                 flavorlists.map((flavor)=>(
                     <div key={flavor.name} className={`z-30 lg:w-[40vw] w-96 lg:h-[70vh] md:w-[90vw] md:h-[50vh] h-80 flex-none ${flavor.rotation}`}>
@@ -68,7 +71,6 @@ useGSAP(()=>{
                 ))
             }
         </div>
-      
     </div>
   )
 }

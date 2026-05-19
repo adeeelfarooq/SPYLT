@@ -59,7 +59,9 @@ const Flavourtitle = () => {
       </div>
       <div className="overflow-hidden 2xl:py-0 py-3 second-text-split">
         <h1>Delicious flavours </h1>
+        
       </div>
+      
     </div>
   )
 }
