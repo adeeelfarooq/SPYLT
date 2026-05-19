@@ -7,7 +7,7 @@ const FlavourSection = () => {
     <section id='flavor-section' className='flavor-section'>
         <a 
             href="#" 
-            className="absolute z-[20000] scale-[0.8] inline-flex items-center justify-center bg-white/70 text-dark-brown font-extrabold left-[50%] -translate-x-1/2 top-[3%] uppercase tracking-wide py-4 px-8 rounded-full transition-all duration-300 ease-in-out hover:bg-light-brown"
+            className="absolute z-[20000] scale-80 inline-flex items-center justify-center bg-light-brown text-dark-brown font-extrabold left-[50%] -translate-x-1/2 top-[90%] uppercase tracking-wide py-5 px-18 rounded-full transition-all duration-300 ease-in-out "
         > 
             GET IT NOW 
         </a>
