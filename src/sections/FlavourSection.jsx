@@ -9,7 +9,7 @@ const FlavourSection = () => {
             href="#" 
             className="absolute z-[20000] scale-[0.8] inline-flex items-center justify-center bg-white/70 text-dark-brown font-extrabold left-[50%] -translate-x-1/2 top-[3%] uppercase tracking-wide py-4 px-8 rounded-full transition-all duration-300 ease-in-out hover:bg-light-brown"
         > 
-            FIND IN STORES 
+            GET IT NOW 
         </a>
 
         {/* Is div pe 'flavor-container' class add ki hai jisko hum move karenge */}
