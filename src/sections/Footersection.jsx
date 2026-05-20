@@ -44,7 +44,7 @@ const Footersection = () => {
                         <p className='cursor-pointer'>Tasty Talk</p>
                     </div>
                 </div>
-                <div className="max-w-lg">
+                <div className="max-w-sm absolute md:right-[5%]">
                     <p>Get Exclusive Early Access & Stay Informed About Product Updates Events & More !</p>
                 </div>
                 <br/>
