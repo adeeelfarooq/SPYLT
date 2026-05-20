@@ -87,8 +87,8 @@ const Testimonialsection = () => {
             }
         </div>
         {/* AAPKA BUTTON YAHAN LAGA DIYA HAI BINA KISI CHANGE KE (Center krny k liye wrapper add kiya hai bas) */}
-        <div className="absolute bottom-20 left-[50%] -translate-x-1/2 z-50">
-            <div className="hero-button relative inline-flex items-center justify-center py-4 px-15 group cursor-pointer scale-[0.8]">
+        <div className="absolute bottom-15 left-[50%] -translate-x-1/2 z-50">
+            <div className="hero-button relative inline-flex items-center justify-center py-4 px-15 group cursor-pointer scale-[0.9]">
                 
                 {/* SVG Filter for Hero Button */}
                 <svg className="absolute w-0 h-0">
@@ -121,7 +121,7 @@ const Testimonialsection = () => {
 
                 {/* Aapka Text */}
                 <p className="relative z-10 text-dark-brown font-extrabold uppercase tracking-wide m-0">
-                    chug a Spylt
+                    EXPLORE ALL
                 </p>
             </div>
         </div>
