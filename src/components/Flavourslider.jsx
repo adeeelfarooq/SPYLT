@@ -50,10 +50,6 @@ useGSAP(()=>{
     }, "<").to(".second-text-split" , {
         xPercent: -10,
         ease: "power1.inOut",
-    } , "<").from(".elements " , {
-        yPercent: -200 , 
-        duration: 5,
-        ease:"power1.inOut",
     } )
 })
 
