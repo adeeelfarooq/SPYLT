@@ -28,17 +28,17 @@ const Footersection = () => {
                 
             </div>
 
-            <div className="mt-49 md:px-1 px-5 flex gap-10 md:flex-row flex-col justify-between text-milk font-paragraph md:text-lg font-medium">
+            <div className="mt-49 md:px-1 px-5 flex gap-10 md:flex-row flex-col justify-between text-milk font-paragraph md:text-sm font-medium">
                 <div className="flex items-center md:gap-16 gap-5 ">
-                    <div className='z-1000' >
+                    <div className='z-1000 md:mb-60' >
                         <p className='cursor-pointer' >SPYLT Flavours</p>
                     </div>
-                    <div className='z-1000'>
+                    <div className='z-1000 md:mb-60'>
                         <p className='cursor-pointer'>Chug Club</p>
                         <p className='cursor-pointer'>Student Marketing</p>
                         <p className='cursor-pointer'>Dairy Dealers</p>
                     </div>
-                    <div className='z-1000'>
+                    <div className='z-1000 md:mb-60'>
                         <p className='cursor-pointer'>Company</p>
                         <p className='cursor-pointer'>Contact</p>
                         <p className='cursor-pointer'>Tasty Talk</p>
