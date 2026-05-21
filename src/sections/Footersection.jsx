@@ -47,7 +47,7 @@ const Footersection = () => {
                 <div className="max-w-sm absolute md:right-[5%]">
                     
                     <p>Get Exclusive Early Access & Stay Informed About Product Updates Events & More !</p>
-                <div className=" mt-10 flex items-center w-[428px] justify-between border-b border-milk pb-2 group">
+                <div className=" mt-10 flex items-center w-[448px] justify-between border-b border-milk pb-2 group">
                         <input 
                             type="email" 
                             placeholder="Enter your email" 
