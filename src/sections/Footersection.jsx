@@ -6,14 +6,14 @@ const Footersection = () => {
         <img src="\images\footer-dip.png" alt="" className='w-full  object-cover translate-y-1' />
 
         <div className="2xl:h-[110dvh] relative md:pt-[20vh] pt-[10vh]">
-            <div className="overflow-hidden z-10">
-                <h1 className='general-title text-center text-milk py-5'>#CHUGRESPONSIBLY</h1>
+            <div className="overflow-hidden ">
+                <h1 className='general-title  text-center text-milk py-5'>#CHUGRESPONSIBLY</h1>
             </div>
             <video src="\videos\splash.mp4" 
             autoPlay
             playsInline
             muted
-            className='absolute top-0 object-contain mix-blend-lighten z-100'
+            className='absolute top-0 object-contain mix-blend-lighten '
             ></video>
             <div className='flex-center gap-5 relative z-10 md:mt-20 mt-5'>
                 <div className="social-btn">
@@ -45,8 +45,24 @@ const Footersection = () => {
                     </div>
                 </div>
                 <div className="max-w-sm absolute md:right-[5%]">
+                    
                     <p>Get Exclusive Early Access & Stay Informed About Product Updates Events & More !</p>
+                <div className=" mt-10 flex items-center justify-between border-b border-milk pb-2 group">
+                        <input 
+                            type="email" 
+                            placeholder="Enter your email" 
+                            className="w-full bg-transparent font-sans border-none outline-none text-milk placeholder:text-milk/60 text-3xl font-extrabold focus:ring-0"
+                        />
+                        <button type="submit" className="text-milk ml-4  cursor-pointer">
+                            {/* Right Arrow SVG */}
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                            </svg>
+                        </button>
+                    </div>
+
                 </div>
+                
                 <br/>
                  <br/>
                   <br/>

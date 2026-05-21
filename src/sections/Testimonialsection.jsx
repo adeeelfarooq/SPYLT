@@ -87,7 +87,7 @@ const Testimonialsection = () => {
             }
         </div>
         {/* AAPKA BUTTON YAHAN LAGA DIYA HAI BINA KISI CHANGE KE (Center krny k liye wrapper add kiya hai bas) */}
-        <div className="absolute bottom-15 left-[50%] -translate-x-1/2 z-50">
+        <div className="absolute md:bottom-20 md:left-[50%] -translate-x-1/2 z-50">
             <div className="hero-button relative inline-flex items-center justify-center py-4 px-15 group cursor-pointer scale-[0.9]">
                 
                 {/* SVG Filter for Hero Button */}
