@@ -31,23 +31,23 @@ const Footersection = () => {
             <div className="mt-49 md:px-5 px-5 flex gap-10 md:flex-col flex-col justify-between text-milk font-paragraph md:text-sm font-medium">
                 <div className="flex items-center md:gap-16 gap-5 ">
                     <div className='z-1000 md:mb-10  ' >
-                        <p className='cursor-pointer ' >SPYLT Flavours</p>
+                        <p className='cursor-pointer hover:text-white/50 ' >SPYLT Flavours</p>
                     </div>
                     <div className='z-1000  '>
-                        <p className='cursor-pointer'>Chug Club</p>
-                        <p className='cursor-pointer'>Student Marketing</p>
-                        <p className='cursor-pointer'>Dairy Dealers</p>
+                        <p className='cursor-pointer hover:text-white/50'>Chug Club</p>
+                        <p className='cursor-pointer hover:text-white/50'>Student Marketing</p>
+                        <p className='cursor-pointer hover:text-white/50'>Dairy Dealers</p>
                     </div>
                     <div className='z-1000 '>
-                        <p className='cursor-pointer'>Company</p>
-                        <p className='cursor-pointer'>Contacts</p>
-                        <p className='cursor-pointer'>Tasty Talk</p>
+                        <p className='cursor-pointer hover:text-white/50' >Company</p>
+                        <p className='cursor-pointer hover:text-white/50'>Contacts</p>
+                        <p className='cursor-pointer hover:text-white/50'>Tasty Talk</p>
                     </div>
                 </div>
                 <div className="max-w-sm absolute md:right-[5%]">
                     
                     <p>Get Exclusive Early Access & Stay Informed About Product Updates Events & More !</p>
-                <div className=" mt-10 flex items-center justify-between border-b border-milk pb-2 group">
+                <div className=" mt-10 flex items-center w-[428px] justify-between border-b border-milk pb-2 group">
                         <input 
                             type="email" 
                             placeholder="Enter your email" 
@@ -70,8 +70,8 @@ const Footersection = () => {
                   <div className="copyright-box">
                     <p>Copyright © 2025 Spylt - All Rights Reserved</p>
                     <div className="flex item-center gap-7 z-1000">
-                        <p className='cursor-pointer'>Privacy Policy</p>
-                        <p className='cursor-pointer'>Terms of Service</p>
+                        <p className='cursor-pointer  hover:text-white/40'>Privacy Policy</p>
+                        <p className='cursor-pointer hover:text-white/40'>Terms of Service</p>
                     </div>
                   </div>
                 
