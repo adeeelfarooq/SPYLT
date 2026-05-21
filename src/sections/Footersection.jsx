@@ -13,7 +13,7 @@ const Footersection = () => {
             autoPlay
             playsInline
             muted
-            className='absolute top-0 object-contain mix-blend-lighten'
+            className='absolute top-0 object-contain mix-blend-lighten z-100'
             ></video>
             <div className='flex-center gap-5 relative z-10 md:mt-20 mt-5'>
                 <div className="social-btn">
@@ -52,7 +52,7 @@ const Footersection = () => {
                   <br/>
                   
                   <div className="copyright-box">
-                    <p >Copyright © 2025 Spylt - All Rights Reserved</p>
+                    <p>Copyright © 2025 Spylt - All Rights Reserved</p>
                     <div className="flex item-center gap-7 z-1000">
                         <p className='cursor-pointer'>Privacy Policy</p>
                         <p className='cursor-pointer'>Terms Of Services</p>
