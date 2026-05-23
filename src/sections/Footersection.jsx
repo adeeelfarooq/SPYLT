@@ -13,7 +13,7 @@ const Footersection = () => {
             autoPlay
             playsInline
             muted
-            className='absolute top-0 object-contain mix-blend-lighten '
+            className='absolute top-0 object-contain mix-blend-lighten max-md:h-full max-md:w-full'
             ></video>
             <div className='flex-center gap-5 relative z-10 md:mt-20 mt-5'>
                 <div className="social-btn">
@@ -28,34 +28,41 @@ const Footersection = () => {
                 
             </div>
 
-            <div className="mt-49 md:px-5 px-5 flex gap-10 md:flex-col flex-col justify-between text-milk font-paragraph md:text-sm font-medium">
-                <div className="flex items-center md:gap-16 gap-5 ">
-                    <div className='z-1000 md:mb-10  ' >
+            {/* Added max-md classes at the end to adjust text size and gap ONLY for mobile */}
+            <div className="mt-49 md:px-5 px-5 flex gap-10 md:flex-col flex-col justify-between text-milk font-paragraph md:text-sm font-medium max-md:text-[11px] max-md:gap-8 max-md:relative max-md:z-10">
+                
+                {/* Added max-md:w-full, max-md:items-start and max-md:justify-between so links spread evenly on mobile */}
+                <div className="flex items-center md:gap-16 gap-5 max-md:w-full max-md:items-start max-md:justify-between">
+                    <div className='z-1000 md:mb-10 max-md:w-[30%]' >
                         <p className='cursor-pointer hover:text-white/50 ' >SPYLT Flavours</p>
                     </div>
-                    <div className='z-1000  '>
+                    <div className='z-1000 max-md:w-[35%] max-md:flex max-md:flex-col max-md:gap-2'>
                         <p className='cursor-pointer hover:text-white/50'>Chug Club</p>
                         <p className='cursor-pointer hover:text-white/50'>Student Marketing</p>
                         <p className='cursor-pointer hover:text-white/50'>Dairy Dealers</p>
                     </div>
-                    <div className='z-1000 '>
+                    <div className='z-1000 max-md:w-[30%] max-md:flex max-md:flex-col max-md:gap-2 max-md:text-right'>
                         <p className='cursor-pointer hover:text-white/50' >Company</p>
                         <p className='cursor-pointer hover:text-white/50'>Contacts</p>
                         <p className='cursor-pointer hover:text-white/50'>Tasty Talk</p>
                     </div>
                 </div>
-                <div className="max-w-sm absolute md:right-[5%]">
+                
+                {/* Replaced 'absolute' effect on mobile with max-md:relative to fix alignment under the links */}
+                <div className="max-w-sm absolute md:right-[5%] max-md:relative max-md:mt-6 max-md:max-w-full">
                     
-                    <p>Get Exclusive Early Access & Stay Informed About Product Updates Events & More !</p>
-                <div className=" mt-10 flex items-center w-[428px] justify-between border-b border-milk pb-2 group">
+                    <p className='max-md:pr-4'>Get Exclusive Early Access & Stay Informed About Product Updates Events & More !</p>
+                
+                {/* Replaced fixed width with max-md:w-full so input fits mobile screen perfectly */}
+                <div className=" mt-10 flex items-center w-[428px] justify-between border-b border-milk pb-2 group max-md:w-full max-md:mt-8">
                         <input 
                             type="email" 
                             placeholder="Enter your email" 
-                            className="w-full bg-transparent font-sans border-none outline-none text-milk placeholder:text-milk/60 text-3xl font-extrabold focus:ring-0"
+                            className="w-full bg-transparent font-sans border-none outline-none text-milk placeholder:text-milk/60 text-3xl font-extrabold focus:ring-0 max-md:text-xl"
                         />
-                        <button type="submit" className="text-milk ml-4  cursor-pointer">
+                        <button type="submit" className="text-milk ml-4  cursor-pointer max-md:shrink-0">
                             {/* Right Arrow SVG */}
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8 max-md:w-6 max-md:h-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                             </svg>
                         </button>
@@ -63,11 +70,13 @@ const Footersection = () => {
 
                 </div>
                 
-                <br/>
-                 <br/>
-                  <br/>
+                {/* Hidden break tags on mobile so it doesn't create extra white space */}
+                <br className='max-md:hidden'/>
+                <br className='max-md:hidden'/>
+                <br className='max-md:hidden'/>
                   
-                  <div className="copyright-box">
+                  {/* Applied max-md:flex-col-reverse to bring Privacy/Terms on top exactly like the screenshot */}
+                  <div className="copyright-box max-md:flex max-md:flex-col-reverse max-md:items-center max-md:gap-4 max-md:pb-10 max-md:mt-4 max-md:text-[10px]">
                     <p>Copyright © 2025 Spylt - All Rights Reserved</p>
                     <div className="flex item-center gap-7 z-1000">
                         <p className='cursor-pointer  hover:text-white/40'>Privacy Policy</p>
