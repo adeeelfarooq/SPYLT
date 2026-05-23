@@ -67,7 +67,7 @@ const Herosection = () => {
 </a>
                     
                     
-                    <BurgerMenu/>
+                    
                     {
                         isTablet ? (
                             <> {
@@ -75,12 +75,17 @@ const Herosection = () => {
                             }
                                 <img src="\images\hero-bg.png" alt="" className="absolute bottom-40 size-full  object-cover" />
                             </>
-                        ) : (
+                        ) :
+                        
+                         (
+                            <>
+                            <BurgerMenu/>
                             <video src="\videos\hero-bg.mp4" className="absolute inset-0 h-full w-full object-cover "
                                 autoPlay
                                 playsInline
                                 muted
                             />
+                            </>
                         )}
                         
                         
