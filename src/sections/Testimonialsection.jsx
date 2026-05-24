@@ -9,13 +9,8 @@ const Testimonialsection = () => {
 
 
     useGSAP(()=>{
-        
-        // FIX: Screen size check lagaya hai. 
-        // Mobile par overlap na ho isliye marginTop "0px" rakha hai. 
-        // Desktop par aapka original "-140dvh" waise ka waisa apply hoga!
-        const isMobile = window.innerWidth <= 768;
         gsap.set(".testimonials-section" , {
-            marginTop: isMobile ? "0px" : "-140dvh" 
+            marginTop: "-140dvh"
         })
 
         const Tl = gsap.timeline({
@@ -67,8 +62,7 @@ const Testimonialsection = () => {
   return (
     <section id='testimonials-section' className="testimonials-section">
         
-        {/* Added max-md:pt-[15vh] to push text down slightly on mobile so it doesn't hit the very top */}
-        <div className="absolute size-full flex flex-col items-center pt-[5vw] max-md:pt-[15vh]">
+        <div className="absolute size-full flex flex-col items-center pt-[5vw]">
             <h1 className='text-black first-title'>What's</h1>
             <h1 className='text-light-brown second-title'>Everyone</h1>
             <h1 className='text-black third-title'>Talking</h1>
@@ -92,9 +86,8 @@ const Testimonialsection = () => {
                 ))
             }
         </div>
-        
-        {/* Added max-md:bottom-10 max-md:left-[50%] so the button stays perfectly centered on mobile too */}
-        <div className="absolute md:bottom-20 md:left-[50%] max-md:bottom-10 max-md:left-[50%] -translate-x-1/2 z-50">
+        {/* AAPKA BUTTON YAHAN LAGA DIYA HAI BINA KISI CHANGE KE (Center krny k liye wrapper add kiya hai bas) */}
+        <div className="absolute md:bottom-20 md:left-[50%] -translate-x-1/2 z-50">
             <div className="hero-button relative inline-flex items-center justify-center py-4 px-15 group cursor-pointer scale-[0.9]">
                 
                 {/* SVG Filter for Hero Button */}
