@@ -9,6 +9,8 @@ const Testimonialsection = () => {
 
 
     useGSAP(()=>{
+
+        const isMobile = window.innerWidth <= 768;
         gsap.set(".testimonials-section" , {
             marginTop: "-140dvh"
         })
@@ -30,17 +32,31 @@ const Testimonialsection = () => {
             xPercent:-50,
         } , "<")
 
-        const pinTl = gsap.timeline({
-        scrollTrigger:{
-            trigger:".testimonials-section",
-            start:"10% top",
-            end:"200% top",
-            scrub: 1.5,
-            pin: true,
-            
-            
-        }
-    }) 
+         let pinTl;
+
+        if (isMobile) {
+            // MOBILE KE LIYE ALAG PIN (start: "top top" rakha hai taake perfect pin ho)
+            pinTl = gsap.timeline({
+                scrollTrigger:{
+                    trigger:".testimonials-section",
+                    start:"top top", 
+                    end:"200% top",
+                    scrub: 1.5,
+                    pin: true,
+                }
+            }) 
+        } else {
+            // DESKTOP KE LIYE AAPKA PURANA PIN (start: "10% top")
+            pinTl = gsap.timeline({
+                scrollTrigger:{
+                    trigger:".testimonials-section",
+                    start:"10% top",
+                    end:"200% top",
+                    scrub: 1.5,
+                    pin: true,
+                }
+            }) 
+        } 
 
     pinTl.from(".vd-card" , {
         yPercent:150 , 
