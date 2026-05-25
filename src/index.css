@@ -284,3 +284,9 @@ body::-webkit-scrollbar {
     transform: rotate(360deg);
   }
 }
+
+
+canvas, video {
+  /* GPU acceleration for all heavy media */
+  will-change: transform;
+}

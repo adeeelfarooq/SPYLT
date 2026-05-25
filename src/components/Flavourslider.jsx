@@ -10,52 +10,55 @@ const Flavourslider = () => {
     });
     const sliderRef = useRef();
 
-useGSAP(()=>{
+    useGSAP(() => {
+        const scrollAmount = sliderRef.current.scrollWidth - window.innerWidth;
 
-    const scrollAmount = sliderRef.current.scrollWidth - window.innerWidth;
-
-    if(!isTablet){
-        const tL = gsap.timeline({
-        scrollTrigger:{
-            trigger: ".flavor-section", // Trigger outer section hi rahy ga
-            start: "2% top",
-            pin: true,                  // Outer section pin ho jayega
-            end: `+=${scrollAmount + 1500}px`,
-            scrub: true,
+        if(!isTablet){
+            const tL = gsap.timeline({
+                scrollTrigger:{
+                    trigger: ".flavor-section", 
+                    start: "2% top",
+                    pin: true,                  
+                    end: () => `+=${scrollAmount + 1500}px`, // Function format is better for recalculation
+                    scrub: 1, // 1 for butter-smooth scrub
+                    invalidateOnRefresh: true, // Resize par lag/breaking fix karega
+                    fastScrollEnd: true // Tezi se scroll par stuck nahi hoga
+                },
+                defaults: { force3D: true } // GPU Acceleration
+            })
+            
+            tL.to(".flavor-container" , {
+                x: () => `-${scrollAmount + 1500}px`, // Same function format here
+                ease: "none", // Horizontal scroll me ease "none" rakhna best hota hai taaky drag aur scroll sync lagy
+            })
         }
-    })
-    
-    // Yahan .flavor-section ki jagah .flavor-container kr diya hai
-    tL.to(".flavor-container" , {
-        x: `-${scrollAmount + 1500}px`,
-        ease: "power1.inOut",
-    })
-    }
-    
-    const titleTl = gsap.timeline({
-        scrollTrigger:{
-            trigger:".flavor-section",
-            start:'top top ',
-            end:"bottom 80%",
-            scrub: true,
-        }
-    })
-    titleTl.to(".first-text-split" , {
-        xPercent: -30,
-        ease: "power1.inOut",
-    }).to(".flavor-text-scroll" , {
-        xPercent: -22,
-        ease: "power1.inOut", 
+        
+        const titleTl = gsap.timeline({
+            scrollTrigger:{
+                trigger:".flavor-section",
+                start:'top top',
+                end:"bottom 80%",
+                scrub: 1, // Smooth scrubbing
+                fastScrollEnd: true
+            },
+            defaults: { force3D: true } // GPU Acceleration
+        })
 
-    }, "<").to(".second-text-split" , {
-        xPercent: -10,
-        ease: "power1.inOut",
-    } )
-})
+        titleTl.to(".first-text-split" , {
+            xPercent: -30,
+            ease: "power1.inOut",
+        }).to(".flavor-text-scroll" , {
+            xPercent: -22,
+            ease: "power1.inOut", 
+        }, "<").to(".second-text-split" , {
+            xPercent: -10,
+            ease: "power1.inOut",
+        } )
+    })
 
   return (
     <div ref={sliderRef} className='slider-wrapper'>
-        <div className="flavors flex"> {/* Ensure this has flex if not already */}
+        <div className="flavors flex"> 
             {
                 flavorlists.map((flavor)=>(
                     <div key={flavor.name} className={`z-30 lg:w-[40vw] w-96 lg:h-[70vh] md:w-[90vw] md:h-[50vh] h-80 flex-none ${flavor.rotation}`}>
