@@ -136,7 +136,7 @@ const Testimonialsection = () => {
                 </div>
 
                 {/* Aapka Text */}
-                <p className="relative max-md:scale-90 z-10 text-dark-brown font-extrabold uppercase tracking-wide m-0">
+                <p className="relative max-md:scale-80 z-10 text-dark-brown font-extrabold uppercase tracking-wide m-0">
                     EXPLORE ALL
                 </p>
             </div>
