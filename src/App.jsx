@@ -22,7 +22,7 @@ const App = () => {
     ScrollSmoother.create({
       wrapper: '#smooth-wrapper',
       content: '#smooth-content',
-      smooth: 1.5, // Same as first code (best for performance)
+      smooth: 2, // Same as first code (best for performance)
       effects: true,
       normalizeScroll: true, // Touch devices pe scroll bugs fix karta hai
     });
