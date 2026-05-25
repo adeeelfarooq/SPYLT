@@ -1,11 +1,13 @@
+import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap";
 import { SplitText } from "gsap/all"
 import { useMediaQuery } from "react-responsive";
 import BurgerMenu from "../components/BurgerMenu";
 
-
 const Herosection = () => {
+    // 1. Ref banaya taake GSAP sirf is component ke andar search kare (Optimization)
+    const containerRef = useRef(null);
 
     const isMobile = useMediaQuery({
         query: "(max-width: 768px)",
@@ -15,14 +17,15 @@ const Herosection = () => {
         query: "(max-width: 1024px)",
     })
 
-
     useGSAP(() => {
         const titleSplit = SplitText.create(".hero-title", { type: "chars" });
 
-
+        // 2. defaults: { force3D: true } add kiya for GPU Acceleration
         const tl = gsap.timeline({
             delay: 1,
+            defaults: { force3D: true } 
         })
+
         tl.to(".hero-content", {
             opacity: 1,
             y: 0,
@@ -35,20 +38,25 @@ const Herosection = () => {
             yPercent: 200,
             stagger: 0.05,
             ease: "power2.out"
-        }, "-0.01").to(".order-btn" , {
+        }, "-0.01").to(".order-btn", {
             clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-            duration: 1 ,
-            ease:"power1.inOut",
-        } )
+            duration: 1,
+            ease: "power1.inOut",
+        })
+
+        // 3. ScrollTrigger optimizations (scrub: 1 & invalidateOnRefresh)
         const heroTl = gsap.timeline({
             scrollTrigger: {
                 trigger: ".hero-container",
                 start: "1% top",
                 end: "bottom top",
-                scrub: true,
-
-            }
+                scrub: 1, // true ki jagah 1 lagaya hai, is se scroll makhhan jesa smooth hota hai
+                invalidateOnRefresh: true, // Resize par calculations theek rakhega
+                fastScrollEnd: true, // Tezi se scroll karne par lag nahi aayega
+            },
+            defaults: { force3D: true } // GPU Acceleration for heavy rotation/scale
         })
+
         heroTl.to(".hero-container", {
             rotate: 7,
             scale: 0.9,
@@ -56,15 +64,14 @@ const Herosection = () => {
             ease: "power1.inOut"
         })
 
-    })
+    }, { scope: containerRef }); // Scope define kar diya
 
     return (
-        <div>
+        // Ref yahan attach kiya
+        <div ref={containerRef}>
             <section id="hero-container" className='bg-main-bg'>
-                <div className='hero-container'>
-                    
-                    
-                    
+                {/* 4. willChange: "transform" add kiya taake rotation/scale smooth ho */}
+                <div className='hero-container' style={{ willChange: "transform" }}>
                     
                     {
                         isTablet ? (
@@ -86,13 +93,14 @@ const Herosection = () => {
                             </>
                         )}
                         
-                        
-                    <div className='hero-content opacity-0'>
+                    {/* willChange add kiya */}
+                    <div className='hero-content opacity-0' style={{ willChange: "transform, opacity" }}>
                         <div className='overflow-hidden'>
                             <h1 className='hero-title'>Freaking Delicious</h1>
                         </div>
                         <div style={{
                             clipPath: "polygon(50% 0, 0% 0, 0% 100%, 100% 100%)",
+                            willChange: "clip-path" // ClipPath lag karta hai, ye usko theek karega
                         }}
                             className="hero-text-scroll">
                             <div className="hero-subtitle">
@@ -104,46 +112,35 @@ const Herosection = () => {
                             Live life with a fullest with SPYLT: Shatter bordom and embrace
                             you inner kid with every deliciously smooth chug.
                         </h2>
+                        
                         <div className="hero-button relative inline-flex items-center justify-center py-4 px-15 group cursor-pointer scale-[0.8]">
-    
-    {/* SVG Filter for Hero Button (ID change ki hai taaky pichle button se conflict na ho) */}
-    <svg className="absolute w-0 h-0">
-        <filter id="gooey-drips-hero">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="gooey" />
-        </filter>
-    </svg>
+                            
+                            {/* SVG Filter for Hero Button */}
+                            <svg className="absolute w-0 h-0">
+                                <filter id="gooey-drips-hero">
+                                    <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="gooey" />
+                                </filter>
+                            </svg>
 
-    {/* Gooey Container (Liquid Drops k liye) */}
-    <div 
-        className="absolute inset-0 pointer-events-none" 
-        style={{ filter: "url(#gooey-drips-hero)" }}
-    >
-        {/* Main Background */}
-        <div className="absolute inset-0  bg-light-brown rounded-full"></div>
-        
-        {/* Drops (Katry) - Same Left to Right Flow */}
-        <div className="absolute w-3 h-15 bg-light-brown rounded-full left-[25%] bottom-0 transition-transform duration-300 ease-in-out group-hover:translate-y-[36px] delay-[225ms]"></div>
-                    
-                    {/* Drip 2: Mid-Left (Sub se lamba, Drip 1 k baad girega) */}
-                    <div className="absolute w-4 h-6 bg-light-brown rounded-full left-[42%] bottom-0 transition-transform duration-300 ease-in-out group-hover:translate-y-[18px] delay-[150ms]"></div>
-                    
-                    {/* Drip 3: Mid-Right (Sub se chhota aur patla) */}
-                    <div className="absolute w-2 h-9 bg-light-brown rounded-full left-[60%] bottom-0 transition-transform duration-300 ease-in-out group-hover:translate-y-[24px] delay-[75ms]"></div>
-                    
-                    {/* Drip 4: Rightmost (Medium length, aakhir mein girega) */}
-                    <div className="absolute w-2 h-5 bg-light-brown rounded-full left-[75%] bottom-0 transition-transform duration-300 ease-in-out group-hover:translate-y-[15px] delay-0"></div>
-    </div>
+                            {/* Gooey Container */}
+                            <div 
+                                className="absolute inset-0 pointer-events-none" 
+                                style={{ filter: "url(#gooey-drips-hero)", willChange: "filter" }} // Filter optimisation
+                            >
+                                <div className="absolute inset-0  bg-light-brown rounded-full"></div>
+                                <div className="absolute w-3 h-15 bg-light-brown rounded-full left-[25%] bottom-0 transition-transform duration-300 ease-in-out group-hover:translate-y-[36px] delay-[225ms] style={{ willChange: 'transform' }}"></div>
+                                <div className="absolute w-4 h-6 bg-light-brown rounded-full left-[42%] bottom-0 transition-transform duration-300 ease-in-out group-hover:translate-y-[18px] delay-[150ms] style={{ willChange: 'transform' }}"></div>
+                                <div className="absolute w-2 h-9 bg-light-brown rounded-full left-[60%] bottom-0 transition-transform duration-300 ease-in-out group-hover:translate-y-[24px] delay-[75ms] style={{ willChange: 'transform' }}"></div>
+                                <div className="absolute w-2 h-5 bg-light-brown rounded-full left-[75%] bottom-0 transition-transform duration-300 ease-in-out group-hover:translate-y-[15px] delay-0 style={{ willChange: 'transform' }}"></div>
+                            </div>
 
-    {/* Aapka Text */}
-    <p className="relative z-10 text-dark-brown font-extrabold uppercase tracking-wide m-0">
-        chug a Spylt
-    </p>
-</div>
+                            <p className="relative z-10 text-dark-brown font-extrabold uppercase tracking-wide m-0">
+                                chug a Spylt
+                            </p>
+                        </div>
                     </div>
-                </div >
-                
-
+                </div>
             </section>
         </div>
     )
