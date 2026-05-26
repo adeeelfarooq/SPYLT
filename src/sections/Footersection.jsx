@@ -1,6 +1,12 @@
 import React from 'react'
+import { useMediaQuery } from "react-responsive";
 
 const Footersection = () => {
+
+    const isMobile = useMediaQuery({
+        query: "(max-width: 768px)",
+    })
+
   return (
     // willChange transform section ko GPU layer de dega
     <section className='footer-section' style={{ willChange: 'transform' }}>
@@ -12,16 +18,28 @@ const Footersection = () => {
                 <h1 className='general-title text-center text-milk py-5'>#CHUGRESPONSIBLY</h1>
             </div>
             
-            {/* VIDEO OPTIMIZATION: willChange='opacity' add kiya hai kyunke mix-blend-lighten render engine ko boht tang karta hai */}
-            <video 
-                src="\videos\splash.mp4" 
-                autoPlay
-                playsInline
-                muted
-                 // Splash effect k liye loop zaroori hota hai
-                className='absolute top-0 object-contain mix-blend-lighten max-md:h-full max-md:w-full'
-                style={{ willChange: 'opacity' }}
-            ></video>
+            {/* 🚀 CONDITION YAHAN LAGAYI GAYI HAI */}
+            {isMobile ? ( 
+                /* MOBILE KE LIYE IMAGE (Aap src update kar lena) */
+                <img 
+                    src="\images\footer-drink.png" // <--- YAHAN APNI IMAGE KA PATH DALEIN
+                    alt="Splash effect"
+                    loading="lazy"
+                    className='absolute top-[-20%] object-contain mix-blend-lighten max-md:h-full max-md:w-full'
+                    style={{ willChange: 'opacity' }}
+                />
+            ) : (
+                /* DESKTOP KE LIYE VIDEO */
+                <video 
+                    src="\videos\splash.mp4" 
+                    autoPlay
+                    playsInline
+                    muted
+                    loop // Splash effect k liye loop zaroori hota hai
+                    className='absolute top-0 object-contain mix-blend-lighten max-md:h-full max-md:w-full'
+                    style={{ willChange: 'opacity' }}
+                ></video>
+            )}
 
             <div className='flex-center gap-5 relative z-10 md:mt-20 mt-5'>
                 <div className="social-btn">
