@@ -76,9 +76,11 @@ const Herosection = () => {
                     {
                         isTablet ? (
                             <> {
-                                isMobile && (<img src="\images\hero-img.png" alt="" className="absolute bottom-0 left-1/2 translate-x-1/2  object-auto" />)
+                                isMobile && (<img src="\images\hero-img.png" alt="" className="absolute bottom-[-23%] left-1/2 -translate-x-1/2 z-10000  object-auto" />
+                                    
+                                )
                             }
-                                <img src="\images\hero-bg.png" alt="" className="absolute bottom-40 size-full  object-cover" />
+                                <img src="\images\hero-bg.png" alt="" className="absolute scale-120 bottom-40 size-full  object-cover" />
                             </>
                         ) :
                         
@@ -95,7 +97,7 @@ const Herosection = () => {
                         
                     {/* willChange add kiya */}
                     <div className='hero-content opacity-0' style={{ willChange: "transform, opacity" }}>
-                        <div className='overflow-hidden'>
+                        <div className='md:overflow-hidden'>
                             <h1 className='hero-title'>Freaking Delicious</h1>
                         </div>
                         <div style={{
