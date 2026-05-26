@@ -22,7 +22,7 @@ const Testimonialsection = () => {
                 start: "top bottom",
                 end: "200% top",
                 scrub: 1, // Optimization: True ki jagah 1 lagaya for smoother text parallax
-                fastScrollEnd: true, // Tezi se scroll par text stuck nahi hoga
+                fastScrollEnd: true, 
                 invalidateOnRefresh: true 
             },
             defaults: { force3D: true } // GPU Acceleration
@@ -74,21 +74,39 @@ const Testimonialsection = () => {
         })
     })
 
+    // 🚀 NEW LOGIC: Desktop ke liye Hover
     const handleplay = (index) => {
-        const video = vdRef.current[index];
-        if(video) video.play(); // Safe check add kiya taake app crash na ho
+        if (window.innerWidth > 768) { // Sirf Desktop par hover chalay ga
+            const video = vdRef.current[index];
+            if(video) video.play(); 
+        }
     };
     
     const handlepause = (index) => {
-        const video = vdRef.current[index];
-        if(video) video.pause(); // Safe check
+        if (window.innerWidth > 768) { // Sirf Desktop par hover chalay ga
+            const video = vdRef.current[index];
+            if(video) video.pause(); 
+        }
     }
+
+    // 🚀 NEW LOGIC: Mobile ke liye Tap (Click)
+    const handleMobileTap = (index) => {
+        if (window.innerWidth <= 768) { // Sirf Mobile par click chalay ga
+            const video = vdRef.current[index];
+            if (video) {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            }
+        }
+    };
 
     return (
         <section id='testimonials-section' className="testimonials-section">
             
             <div className="absolute size-full flex flex-col items-center pt-[5vw]">
-                {/* willChange add kiya for smooth text horizontal scrolling */}
                 <h1 className='text-black first-title' style={{ willChange: 'transform' }}>What's</h1>
                 <h1 className='text-light-brown second-title' style={{ willChange: 'transform' }}>Everyone</h1>
                 <h1 className='text-black third-title' style={{ willChange: 'transform' }}>Talking</h1>
@@ -100,9 +118,10 @@ const Testimonialsection = () => {
                         <div 
                             key={index} 
                             className={`vd-card ${card.translation} ${card.rotation} `}
-                            style={{ willChange: 'transform' }} // Video uper anay ki animation ko makhhan banayega
+                            style={{ willChange: 'transform' }} 
                             onMouseEnter={() => handleplay(index)} 
                             onMouseLeave={() => handlepause(index)}
+                            onClick={() => handleMobileTap(index)} // 👈 Mobile Tap Fix Yahan Laga Hai
                         >
                            <video 
                                ref={(el) => (vdRef.current[index]=el)}
@@ -110,7 +129,7 @@ const Testimonialsection = () => {
                                playsInline
                                muted
                                loop
-                               className='sized-full object-cover'
+                               className='sized-full object-cover pointer-events-none' // pointer-events-none taake click seedha div par lagay
                            ></video>
                         </div>
                     ))
