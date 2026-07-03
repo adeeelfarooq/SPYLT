@@ -72,7 +72,7 @@ const Nutritionsection = () => {
     }, [isMobile]); // Dependency add ki
 
   return (
-    <section id="nutrition-section" className='nutrition-section'>
+    <section id="nutrition-section" className='nutrition-section '>
         {/* OPTIMIZATION 4: "loading='lazy'" add kiya hai taake ye bari images site load hotay hi net slow na karein */}
         <img loading="lazy" src="\images\slider-dip.png" alt="" className='w-full object-cover' />
         <img loading="lazy" src="\images\big-img.png" alt="" className='big-img' />

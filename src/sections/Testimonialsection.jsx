@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { cards } from '../constants'
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -74,16 +74,55 @@ const Testimonialsection = () => {
         })
     })
 
+    // 🚀 FIX: Mobile browsers (especially iOS Safari) don't paint the first frame
+    // of a muted/looped video until it has actually played once. Yahi wajah thi
+    // ke sirf khali box + border dikhta tha jab tak tap na karo.
+    // Fix: load() call karke currentTime ko thora sa aage set karo taake
+    // browser force se ek frame render/paint kar de, video pause rehte hue bhi.
+    useEffect(() => {
+        vdRef.current.forEach((video) => {
+            if (!video) return;
+
+            const forceFirstFrame = () => {
+                try {
+                    video.currentTime = 0.01;
+                } catch (e) {
+                    // Kuch browsers metadata load hone se pehle currentTime set nahi karne dete
+                }
+            };
+
+            if (video.readyState >= 1) {
+                // Metadata already loaded
+                forceFirstFrame();
+            } else {
+                video.addEventListener('loadedmetadata', forceFirstFrame, { once: true });
+            }
+
+            video.load();
+        });
+    }, []);
+
+    // 🚀 Optimization: matchMedia ek dafa listen karta hai, har hover/tap event
+    // pe window.innerWidth dobara calculate nahi karna parta (logic same hai, bas cheaper hai)
+    const isMobileRef = useRef(window.innerWidth <= 768);
+    useEffect(() => {
+        const mq = window.matchMedia('(max-width: 768px)');
+        const update = (e) => { isMobileRef.current = e.matches; };
+        isMobileRef.current = mq.matches;
+        mq.addEventListener('change', update);
+        return () => mq.removeEventListener('change', update);
+    }, []);
+
     // 🚀 NEW LOGIC: Desktop ke liye Hover
     const handleplay = (index) => {
-        if (window.innerWidth > 768) { // Sirf Desktop par hover chalay ga
+        if (!isMobileRef.current) { // Sirf Desktop par hover chalay ga
             const video = vdRef.current[index];
             if(video) video.play(); 
         }
     };
     
     const handlepause = (index) => {
-        if (window.innerWidth > 768) { // Sirf Desktop par hover chalay ga
+        if (!isMobileRef.current) { // Sirf Desktop par hover chalay ga
             const video = vdRef.current[index];
             if(video) video.pause(); 
         }
@@ -91,7 +130,7 @@ const Testimonialsection = () => {
 
     // 🚀 NEW LOGIC: Mobile ke liye Tap (Click)
     const handleMobileTap = (index) => {
-        if (window.innerWidth <= 768) { // Sirf Mobile par click chalay ga
+        if (isMobileRef.current) { // Sirf Mobile par click chalay ga
             const video = vdRef.current[index];
             if (video) {
                 if (video.paused) {
@@ -127,9 +166,11 @@ const Testimonialsection = () => {
                                ref={(el) => (vdRef.current[index]=el)}
                                src={card.src}
                                playsInline
+                               webkit-playsinline="true"
                                muted
                                loop
-                               className='sized-full object-cover pointer-events-none' // pointer-events-none taake click seedha div par lagay
+                               preload="metadata"
+                               className='size-full object-cover pointer-events-none' // 🐛 FIXED: "sized-full" -> "size-full" (typo tha, isi wajah se video render nahi ho raha tha, sirf border dikh raha tha)
                            ></video>
                         </div>
                     ))

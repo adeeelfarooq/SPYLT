@@ -167,7 +167,7 @@ body::-webkit-scrollbar {
   }
 
   .nutrition-section {
-    @apply min-h-dvh md:mt-20 max-md:mt-30 2xl:h-[120dvh] overflow-hidden relative;
+    @apply min-h-dvh md:mt-30 max-md:mt-30 2xl:h-[120dvh] overflow-hidden relative;
 
     .big-img {
       @apply w-[100%] absolute 2xl:h-full md:h-[100%] h-1/2 left-0 bottom-0 object-top 2xl:object-contain object-cover ;
