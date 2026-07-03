@@ -14,12 +14,32 @@ import Footersection from './sections/Footersection';
 // Plugins Register karna lazmi hai
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
 
+// 🚀 SAB SE BARA FIX: Mobile browsers (iOS/Android) mein address bar
+// show/hide hone par bhi "resize" event fire hota hai. Pehle is par
+// har baar ScrollTrigger.refresh() (bohot heavy — saare pinned sections
+// ki positions dobara calculate karta hai) chal raha tha, isi wajah se
+// scroll beech mein "atak/stuck" feel hota tha. Ye line GSAP ko batati
+// hai ke sirf real resize (orientation change / window resize) par hi
+// react kare, address-bar wale fake resize ko ignore kare.
+ScrollTrigger.config({ ignoreMobileResize: true });
+
+// 🚀 Debounce helper: agar real resize event fire bhi ho (jaise window
+// drag karke resize karna), to refresh baar baar nahi, sirf ek dafa —
+// jab user resize "rok" de — chalega.
+const debounce = (fn, delay = 250) => {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+};
+
 const App = () => {
   const mainRef = useRef(null); // Pure app ka ref
 
   useGSAP(() => {
     // 1. ScrollSmoother Create karna
-    ScrollSmoother.create({
+    const smoother = ScrollSmoother.create({
       wrapper: '#smooth-wrapper',
       content: '#smooth-content',
       smooth: 1.5, // Same as first code (best for performance)
@@ -33,13 +53,25 @@ const App = () => {
       ScrollTrigger.refresh();
     }, 1000); // 1 second ka delay taa ke sab kuch render ho jaye
 
-    // Resize event pe bhi refresh karo (agar user screen choti bari kare)
-     window.addEventListener('resize', () => ScrollTrigger.refresh());
-   return () => {
-         clearTimeout(timeout);
-         window.removeEventListener('resize', () => ScrollTrigger.refresh());
-       };
-     }, { scope: mainRef }); 
+    // 🚀 Slow network par 1 second kaafi na ho to window 'load' pe bhi
+    // ek dafa refresh — taake positions hamesha sahi rahein
+    const handleLoad = () => ScrollTrigger.refresh();
+    window.addEventListener('load', handleLoad);
+
+    // 🐛 FIX: Ab same function reference add/remove dono jagah use ho
+    // raha hai (pehle alag-alag anonymous functions the, is liye cleanup
+    // kabhi kaam nahi karta tha) + debounce laga diya taake rapid resize
+    // events par baar baar heavy refresh na chale.
+    const handleResize = debounce(() => ScrollTrigger.refresh(), 250);
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener('load', handleLoad);
+      window.removeEventListener('resize', handleResize);
+      smoother?.kill(); // 🚀 Unmount pe smoother properly cleanup hoga (memory leak se bachao)
+    };
+  }, { scope: mainRef }); 
 
   return (
     <main ref={mainRef}>
@@ -54,10 +86,8 @@ const App = () => {
           <FlavourSection />
           <Nutritionsection />
           <Benefitsection />
-            <Testimonialsection />
+          <Testimonialsection />
           <Footersection />
-
-          
         </div>
       </div>
     </main>
