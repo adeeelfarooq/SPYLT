@@ -89,6 +89,7 @@ const Flavourslider = () => {
                     </div>
                 ))
             }
+            
         </div>
     </div>
   )

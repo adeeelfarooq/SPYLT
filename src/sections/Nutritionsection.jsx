@@ -86,6 +86,8 @@ const Nutritionsection = () => {
                         <h1 className="nutrition-title">It still does</h1>
                     </div>
 
+                    
+
                     <div style={{
                         clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
                         willChange: "clip-path, opacity" // Clip Path optimization

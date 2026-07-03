@@ -113,6 +113,8 @@ const Herosection = () => {
                                 />
                             </>
                         )}
+
+                        
                         
                     <div className='hero-content opacity-0' style={{ willChange: "transform, opacity" }}>
                         <div className='md:overflow-hidden'>

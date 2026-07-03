@@ -109,6 +109,7 @@ const BurgerMenu = () => {
                 onMouseLeave={handleItemLeave}
                 className="cursor-pointer transform-gpu will-change-opacity" // Optimizing opacity changes
               >
+                
                 {item.name}
               </li>
             ))}

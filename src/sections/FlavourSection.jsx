@@ -32,6 +32,7 @@ const FlavourSection = () => {
                     <div className="absolute w-2 h-5 bg-light-brown rounded-full left-[75%] bottom-0 transition-transform duration-300 ease-in-out group-hover:translate-y-[15px] delay-0" style={{ willChange: "transform" }}></div>
                 </div>
 
+
                 <span className="relative z-10 text-dark-brown font-extrabold uppercase tracking-wide">
                     GET IT NOW 
                 </span>

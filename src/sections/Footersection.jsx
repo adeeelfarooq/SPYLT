@@ -77,6 +77,8 @@ const Footersection = () => {
                 <div className="social-btn">
                     <img loading="lazy" decoding="async" src="/images/yt.svg" alt="YouTube" />
                 </div>
+
+                
                 <div className="social-btn">
                     <img loading="lazy" decoding="async" src="/images/insta.svg" alt="Instagram" />
                 </div>
