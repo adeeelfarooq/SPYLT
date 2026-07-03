@@ -76,8 +76,8 @@ const Flavourtitle = () => {
         </div>
       </div>
       
-      <div className="overflow-hidden 2xl:py-0 py-3 second-text-split" style={{ willChange: "transform" }}>
-        <h1>Delicious flavours </h1>
+      <div className="overflow-hidden md:whitespace-nowrap 2xl:py-0 py-3 second-text-split" style={{ willChange: "transform" }}>
+        <h1 className='md:whitespace-nowrap'>Delicious flavours </h1>
       </div>
     </div>
   )
