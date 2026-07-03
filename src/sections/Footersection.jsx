@@ -78,7 +78,7 @@ const Footersection = () => {
                     <img loading="lazy" decoding="async" src="/images/yt.svg" alt="YouTube" />
                 </div>
 
-                
+
                 <div className="social-btn">
                     <img loading="lazy" decoding="async" src="/images/insta.svg" alt="Instagram" />
                 </div>
@@ -127,7 +127,7 @@ const Footersection = () => {
                 <br className='max-md:hidden'/>
                   
                 <div className="copyright-box max-md:flex max-md:flex-col-reverse max-md:items-center max-md:gap-4 max-md:pb-10 max-md:mt-4 max-md:text-[10px]">
-                    <p>Copyright © 2025 Spylt - All Rights Reserved</p>
+                    <p>Copyright © {new Date().getFullYear()} Spylt - All Rights Reserved</p>
                     <div className="flex item-center gap-7 z-[1000]">
                         <p className='cursor-pointer hover:text-white/40'>Privacy Policy</p>
                         <p className='cursor-pointer hover:text-white/40'>Terms of Service</p>
