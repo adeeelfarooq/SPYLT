@@ -182,3 +182,8 @@ npm run lint      # ESLint check
 &nbsp;
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-adeeelfarooq-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/adeeelfarooq)
 
+## ⭐ Show Your Support
+
+If you found this project interesting, please consider giving it a **star** ⭐ — it means a lot!
+
+---
