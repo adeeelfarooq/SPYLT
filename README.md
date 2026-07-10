@@ -1,121 +1,176 @@
 <div align="center">
 
-# ⚡ SPYLT — Animated Landing Page Clone
+# SPYLT — Animated Landing Page Clone
 
-**A pixel-perfect, animation-rich landing page clone inspired by [SPYLT.com](https://spylt.com)**  
-Built to sharpen front-end development and motion design skills using modern web technologies.
+A pixel-perfect, animation-rich frontend clone of [SPYLT.com](https://spylt.com) — a premium protein milk brand.
+Built to push the limits of scroll-based animation, motion design, and modern React architecture.
 
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Visit_Site-1F3864?style=for-the-badge)](https://spylt-red.vercel.app/)
-[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-1F3864?style=for-the-badge&logo=vercel)](https://spylt-red.vercel.app/)
+&nbsp;
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+&nbsp;
 [![GSAP](https://img.shields.io/badge/GSAP-3.15-88CE02?style=for-the-badge)](https://gsap.com/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38BDF8?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/)
-[![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite)](https://vite.dev/)
+&nbsp;
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v4-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+&nbsp;
+[![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vite.dev/)
 
 </div>
 
 ---
 
-## 🎯 About The Project
+## Overview
 
-This project is a **front-end clone** of the SPYLT.com landing page, recreated from scratch to practice and demonstrate advanced animation techniques, responsive UI design, and modern React development patterns.
+SPYLT is a fully animated, production-grade landing page clone built from scratch with React 19 and GSAP 3.15. Every section features hand-crafted animations — from character-level text splitting and clip-path reveals to pinned horizontal scrolling, video-driven interactions, and a scroll-expanding circular video player.
 
-The goal was not just to replicate the visual design, but to deeply understand and implement the **scroll-based animation choreography**, **interactive effects**, and **fluid user experience** that make modern landing pages stand out.
+This project was built as a deep-dive into advanced frontend motion design — focusing on performance, smooth 60fps animations, mobile Safari compatibility, and proper GSAP lifecycle management inside React.
 
 ---
 
-## ✨ Features
+## ⚡ Animations & Interactions
 
-- 🎬 **Scroll-Triggered Animations** — Smooth, choreographed animations that fire as the user scrolls through each section, powered by GSAP ScrollTrigger
-- 🖱️ **Interactive Hover Effects** — Engaging hover-based micro-animations that enhance interactivity and visual feedback
-- 📱 **Fully Responsive Design** — Consistent, pixel-perfect UI/UX across mobile, tablet, and desktop using `react-responsive`
-- ⚡ **Optimized Performance** — Built with Vite for lightning-fast dev experience and optimized production builds
-- 🎨 **Modern UI** — Clean, minimal aesthetic with smooth transitions and motion design principles
+This is where the project goes deep. Every animation was hand-crafted using GSAP primitives:
+
+**Hero Section**
+- Character-by-character title reveal using `SplitText` with `yPercent: 200` stagger entrance
+- Clip-path slide-in for subtitle ("Protein + Caffeine") from left
+- Scroll-triggered hero tilt: the entire section rotates and scales out as you scroll away (`scrub: 1`, `rotate: 7`, `scale: 0.9`)
+- Gooey liquid drip effect on CTA button using SVG `feGaussianBlur` + `feColorMatrix` filter with staggered CSS transitions
+
+**Message Section**
+- Word-by-word text color animation (dark → cream) scrubbed to scroll position using `SplitText` with `type: "words"`
+- Clip-path reveal for the highlighted "Fuel Up" badge
+- Paragraph words fly in with `yPercent: 300` and a slight `rotate: 3` for a natural feel
+
+**Flavour Section**
+- Pinned horizontal scroll: the entire flavour slider moves on the X-axis while the page scrolls vertically (`pin: true`, `scrub: 1`, dynamically calculated `end` value via `getScrollAmount()`)
+- Three-layer title parallax — each text row moves at different speeds (`xPercent`) creating depth
+
+**Nutrition Section**
+- Char-level stagger entrance for the main title
+- Clip-path + opacity reveal for the highlight badge
+- Responsive nutrient grid: shows 5 items on desktop, 3 on mobile (via `useState` + `useEffect` + `react-responsive`)
+
+**Benefits Section**
+- Four benefit titles revealed sequentially with scrubbed clip-path animations (`circ.out` easing)
+- Video pin section: a circular video (`circle(9% at 50% 50%)`) expands to full screen as you scroll using `clip-path` animation
+
+**Testimonials Section**
+- Pinned section with three massive heading texts sliding in opposing horizontal directions simultaneously (`xPercent` with `"<"` position alignment)
+- Seven video testimonial cards fly in from below with staggered `yPercent: 150` entrance
+- Desktop: hover to play / pause each video card
+- Mobile: tap to play / pause with a dedicated touch handler
+- iOS Safari fix: `video.currentTime = 0.01` on `loadedmetadata` to force first-frame render
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology | Version | Purpose |
+| Technology | Version | Role |
 |---|---|---|
-| [React](https://react.dev/) | 19 | UI Component Library |
-| [GSAP](https://gsap.com/) | 3.15 | Animation Engine |
-| [@gsap/react](https://gsap.com/docs/v3/Packages/@gsap/react/) | 2.1 | GSAP React Integration |
-| [Tailwind CSS](https://tailwindcss.com/) | v4 | Utility-First Styling |
-| [Vite](https://vite.dev/) | 8 | Build Tool & Dev Server |
-| [react-responsive](https://github.com/yocontra/react-responsive) | 10 | Responsive Breakpoints |
+| React | 19 | UI & Component Architecture |
+| GSAP | 3.15 | All Animations (ScrollTrigger, ScrollSmoother, SplitText, ScrollToPlugin) |
+| @gsap/react | 2.1 | `useGSAP` hook for React-safe animation lifecycle |
+| Tailwind CSS | v4 | Utility-First Styling |
+| Vite | 8 | Build Tool & Dev Server |
+| react-responsive | 10 | Responsive breakpoint detection |
+
+**GSAP Plugins Used:**
+`ScrollTrigger` · `ScrollSmoother` · `SplitText` · `ScrollToPlugin`
+
+---
+
+## 🏗️ Project Structure
+
+```
+src/
+├── components/
+│   ├── NavBar.jsx           # Fixed navigation with scroll-to links
+│   ├── BurgerMenu.jsx       # Mobile hamburger menu
+│   ├── ClipPathTitle.jsx    # Reusable animated clip-path title component
+│   ├── Flavourslider.jsx    # Horizontal scroll slider with pinning
+│   └── Videopinsection.jsx  # Circular expanding video player
+│
+├── sections/
+│   ├── Herosection.jsx      # Hero with SplitText + scroll tilt + gooey CTA
+│   ├── Messagesection.jsx   # Word color scrub + clip-path reveal
+│   ├── FlavourSection.jsx   # Pinned horizontal flavour scroll
+│   ├── Nutritionsection.jsx # Animated nutrition facts + responsive grid
+│   ├── Benefitsection.jsx   # Sequential clip-path benefit reveals
+│   ├── Testimonialsection.jsx # Pinned video cards + parallax headings
+│   └── Footersection.jsx    # Footer
+│
+├── constants/
+│   └── index.js             # Flavour list, nutrition data, testimonial cards
+│
+├── App.jsx                  # Root — ScrollSmoother setup, debounced resize
+└── main.jsx                 # Entry point
+```
+
+---
+
+## ⚙️ Performance Decisions
+
+**ScrollSmoother** — `smooth: 1.5` with `normalizeScroll: true` for consistent cross-device scrolling. `ignoreMobileResize: true` prevents address bar show/hide from triggering expensive `ScrollTrigger.refresh()` calls.
+
+**Debounced resize** — A custom `debounce(fn, 250)` wrapper ensures `ScrollTrigger.refresh()` fires only once after the user finishes resizing, not on every event tick.
+
+**`useGSAP` scope** — Every animation is scoped to its component's `containerRef`, so GSAP only queries DOM elements within that subtree. Prevents cross-component selector conflicts.
+
+**`force3D: true`** — Applied globally via `defaults` on every timeline, ensuring transforms are always GPU-composited for 60fps performance.
+
+**`willChange`** — Strategically applied to elements that animate (`transform`, `clip-path`, `opacity`, `filter`) so the browser can promote them to their own compositor layer before the animation starts.
+
+**`fastScrollEnd: true`** — Applied to all scrubbed ScrollTriggers to immediately snap animations to their end state when the user scrolls past quickly, preventing "stuck" mid-animation states.
+
+**Lazy video loading (Benefits section)** — `IntersectionObserver` with `rootMargin: "300px"` starts loading the pinned video 300px before it enters the viewport, eliminating buffering lag.
+
+**SplitText cleanup** — Every `SplitText` instance is reverted in the `useGSAP` cleanup return function, restoring original DOM structure and freeing memory on unmount.
 
 ---
 
 ## 🚀 Getting Started
 
-### Prerequisites
-
-Make sure you have the following installed:
-- [Node.js](https://nodejs.org/) (v18 or higher)
-- npm or yarn
-
-### Installation
+**Prerequisites:** Node.js v18+
 
 ```bash
-# 1. Clone the repository
+# Clone the repo
 git clone https://github.com/adeeelfarooq/SPYLT.git
-
-# 2. Navigate into the project directory
 cd SPYLT
 
-# 3. Install dependencies
+# Install dependencies
 npm install
 
-# 4. Start the development server
+# Start development server
 npm run dev
 ```
 
-The app will be running at `http://localhost:5173`
-
-### Available Scripts
+Open `http://localhost:5173`
 
 ```bash
-npm run dev       # Start development server
-npm run build     # Build for production
-npm run preview   # Preview production build locally
-npm run lint      # Run ESLint
+npm run dev       # Development server
+npm run build     # Production build
+npm run preview   # Preview production build
+npm run lint      # ESLint check
 ```
 
 ---
 
-## 📁 Project Structure
+## 📌 Key Challenges Solved
 
-```
-SPYLT/
-├── public/             # Static assets
-├── src/
-│   ├── components/     # Reusable UI components
-│   ├── assets/         # Images, videos, fonts
-│   ├── App.jsx         # Root component
-│   └── main.jsx        # Entry point
-├── index.html
-├── vite.config.js
-├── tailwind.config.js
-└── package.json
-```
+**Sections merging on scroll** — Pinned ScrollTrigger sections were overlapping incorrectly. Fixed with a `setTimeout(() => ScrollTrigger.refresh(), 1000)` after mount to let all assets render before GSAP calculates positions, plus a `window load` listener for slow networks.
+
+**iOS Safari blank video cards** — Videos rendered as empty boxes on mobile until tapped. Root cause: iOS doesn't paint the first frame of a muted video until it has played. Fixed by setting `video.currentTime = 0.01` on `loadedmetadata`.
+
+**Horizontal scroll end calculation** — Static pixel values for horizontal scroll caused misalignment on different screen sizes. Fixed by replacing constants with a `getScrollAmount()` function that reads `sliderRef.current.scrollWidth - window.innerWidth` dynamically, also passed as a function to `end` and `x` so `invalidateOnRefresh` recalculates it correctly.
+
+**Memory leaks from SplitText** — Leaving split DOM nodes after component unmount caused duplicate elements on re-render. Fixed by calling `.revert()` on every SplitText instance inside `useGSAP`'s cleanup return.
 
 ---
 
 ## 🌐 Live Demo
 
-👉 **[https://spylt-red.vercel.app/](https://spylt-red.vercel.app/)**
-
-Deployed on **Vercel** for fast, global delivery.
-
----
-
-## 📚 What I Learned
-
-- Implementing **scroll-based animation timelines** with GSAP ScrollTrigger
-- Using **`useGSAP`** hook from `@gsap/react` for proper React integration and cleanup
-- Managing **animation context** to avoid memory leaks in React components
-- Building **responsive layouts** with Tailwind CSS v4's new syntax
-- Optimizing assets and animation performance for smooth 60fps experiences
+**[https://spylt-red.vercel.app/](https://spylt-red.vercel.app/)**
 
 ---
 
@@ -124,16 +179,6 @@ Deployed on **Vercel** for fast, global delivery.
 **Adeel Farooq**
 
 [![GitHub](https://img.shields.io/badge/GitHub-adeeelfarooq-181717?style=flat&logo=github)](https://github.com/adeeelfarooq)
+&nbsp;
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-adeeelfarooq-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/adeeelfarooq)
 
----
-
-## ⭐ Show Your Support
-
-If you found this project interesting, please consider giving it a **star** ⭐ — it means a lot!
-
----
-
-<div align="center">
-  <sub>Built with ❤️ and a lot of GSAP timelines</sub>
-</div>
