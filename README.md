@@ -86,7 +86,7 @@ This is where the project goes deep. Every animation was hand-crafted using GSAP
 src/
 ├── components/
 │   ├── NavBar.jsx           # Fixed navigation with scroll-to links
-│   ├── BurgerMenu.jsx       # Mobile hamburger menu
+│   ├── BurgerMenu.jsx       # Desktop hamburger menu
 │   ├── ClipPathTitle.jsx    # Reusable animated clip-path title component
 │   ├── Flavourslider.jsx    # Horizontal scroll slider with pinning
 │   └── Videopinsection.jsx  # Circular expanding video player
